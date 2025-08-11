@@ -1,7 +1,39 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
 body {
   background-color: bisque;
-  font-family: Honk;
+  font-family: sans-serif;
+  margin: 0;
 }
-h1 {
+h2 {
   font-family: "Jolly Lodger";
+  font-size: 64px;
+}
+.bright-button {
+  all: unset;
+  font-family: Honk;
+  font-size: 32px;
+
+  &:hover {
+    cursor: pointer;
+    text-shadow: 10px 10px 10px orange;
+  }
+}
+.input {
+  /* all: unset; */
+  width: 100%;
+  font-size: 32px;
+  padding: 20px;
+  background-color: orange;
+  line-height: 1;
+  &:focus {
+    box-shadow: 0 0 10px orange;
+  }
 }
