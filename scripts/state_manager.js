@@ -11,3 +11,6 @@ export function loadState() {
   }
   return appState;
 }
+export function resetState() {
+  localStorage.setItem("appState", JSON.stringify({}));
+}

@@ -1,1 +1,1 @@
-console.log("Hello, fight!");
+import "./scripts/registry.js";
