@@ -1,0 +1,28 @@
+.character-content {
+  display: flex;
+}
+.character-info {
+  width: 50%;
+}
+.character-info__name {
+}
+.character-info__nums {
+}
+.character-info__wins {
+}
+.character-info__loses {
+}
+.character-info__img-wr {
+}
+.character-info__img {
+}
+.character-avatars {
+  width: 50%;
+  display: flex;
+  flex-flow: row wrap;
+  gap: 30px 30px;
+}
+.character-avatars__img-wr {
+}
+.character-avatars__img {
+}
