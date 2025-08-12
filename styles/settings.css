@@ -1,0 +1,37 @@
+.settings-main {
+}
+.settings-content {
+  background-color: black;
+  opacity: 0.7;
+  width: 400px;
+  height: 600px;
+  box-shadow: 0 0 10px 10px black;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+  padding: 30px;
+}
+.settings-content__hero-name {
+  color: white;
+  text-align: center;
+  margin-bottom: 0;
+}
+.settings-content__name {
+  color: white;
+  text-align: center;
+  margin-top: 20px;
+}
+.settings-content__input {
+  width: 100%;
+  font-size: 32px;
+  &:hover {
+    box-shadow: 0 0 5px 5px orange;
+  }
+}
+.settings-content__button {
+  display: block;
+  font-size: 64px;
+  text-align: center;
+  width: 100%;
+  margin-top: 50px;
+}
