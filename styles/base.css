@@ -11,7 +11,13 @@ html {
 body {
   font-family: sans-serif;
   margin: 0;
+  background-image: url("/images/background/main.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
 }
+
 h2 {
   font-family: "Jolly Lodger";
   font-size: 64px;

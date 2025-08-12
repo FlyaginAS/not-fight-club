@@ -9,6 +9,8 @@ const appState = loadState();
 console.log(appState);
 
 if (!appState.characterName) {
+  modalRegistry.classList.remove("hidden");
+
   registryForm.addEventListener("submit", (evt) => {
     evt.preventDefault();
     evt.stopPropagation();
