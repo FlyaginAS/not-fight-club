@@ -24,6 +24,7 @@
 .settings-content__input {
   width: 100%;
   font-size: 32px;
+  text-align: center;
   &:hover {
     box-shadow: 0 0 5px 5px orange;
   }

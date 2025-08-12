@@ -4,14 +4,14 @@ body {
 .main-fight {
 }
 .fight-content {
-  border: 1px solid green;
+  /* border: 1px solid green; */
   padding: 30px;
   display: flex;
   justify-content: space-evenly;
 }
 .hero-zone,
 .enemy-zone {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   width: 400px;
 }
 /**************************************************/
@@ -41,12 +41,19 @@ body {
 }
 .hero-health-wr,
 .enemy-health-wr {
+  width: 90%;
 }
 .hero-health,
 .enemy-health {
+  width: 100%;
+  height: 30px;
+  accent-color: red;
 }
 .hero-health-nums,
 .enemy-health-nums {
+  font-size: 24px;
+  text-align: center;
+  color: white;
 }
 .hero-health__current,
 .enemy-health__current {
@@ -56,7 +63,7 @@ body {
 }
 /**************************************************/
 .body-zones {
-  border: 1px solid yellow;
+  /* border: 1px solid yellow; */
   width: 400px;
   background-image: url("/images/body.png");
   background-repeat: no-repeat;
@@ -65,27 +72,93 @@ body {
   opacity: 0.8;
   box-shadow: 0 0 10px 10px black;
 }
-.zones__rules .zones .attack-zones,
+.zones__rules {
+  text-align: center;
+}
+.zones {
+  display: flex;
+  margin-bottom: 50px;
+}
+.attack-zones,
 .defence-zones {
+  width: 50%;
+  display: flex;
+  flex-flow: column nowrap;
+
+  font-size: 32px;
 }
 .attack-zones__label,
 .defence-zones__label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  &:nth-child(3) {
+    margin-bottom: 40px;
+  }
+  &:nth-child(4) {
+    margin-bottom: 140px;
+  }
 }
+
 .attack-zones__span,
 .defence-zones__span {
 }
 .attack-zones__checkbox,
 .defence-zones__checkbox {
+  width: 32px;
+  height: 32px;
+  opacity: 0.7;
+}
+.attack-zones__checkbox {
+  order: -1;
+}
+.zones-type {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 30px;
+}
+.zones-type__attack {
+  font-size: 24px;
+  color: red;
+}
+.zones-type__defence {
+  font-size: 24px;
+  color: lightgreen;
+}
+.attack-wr {
+  display: flex;
+  justify-content: center;
+}
+.attack-button {
+  font-size: 50px;
+  background-color: orange;
+  border-radius: 50%;
+  line-height: 1;
+  padding: 5px;
 }
 /**************************************************/
 .fight-log {
-  border: 1px solid green;
-  height: 150px;
-  width: 70%;
+  /* border: 1px solid green; */
+  font-family: ;
+  color: white;
+  height: 155px;
+  width: 60%;
   margin-left: auto;
   margin-right: auto;
   overflow-y: scroll;
-  background-color: orange;
+  background-color: rgba(0, 0, 0, 0.7);
+  &::-webkit-scrollbar {
+    width: 20px;
+    background: black;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: orangered;
+  }
 }
 .fight-log__p {
+  font-weight: bold;
+  font-size: 18px;
 }
