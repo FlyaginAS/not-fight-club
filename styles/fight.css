@@ -1,3 +1,61 @@
 body {
   background-image: url("/images/background/fight.jpg");
 }
+.main-fight {
+}
+.fight-content {
+  border: 1px solid green;
+}
+.hero-zone,
+.enemy-zone {
+  border: 1px solid red;
+}
+.hero-content,
+.enemy-content {
+}
+.hero-header,
+.enemy-header {
+}
+.hero-avatar-wr,
+.enemy-avatar-wr {
+}
+.hero-avatar,
+.enemy-avatar {
+}
+.hero-health-wr,
+.enemy-health-wr {
+}
+.hero-health,
+.enemy-health {
+}
+.hero-health-nums,
+.enemy-health-nums {
+}
+.hero-health__current,
+.enemy-health__current {
+}
+.hero-health__full,
+.enemy-health__full {
+}
+/**************************************************/
+.body-zones {
+  border: 1px solid yellow;
+}
+.zones__rules .zones .attack-zones,
+.defence-zones {
+}
+.attack-zones__label,
+.defence-zones__label {
+}
+.attack-zones__span,
+.defence-zones__span {
+}
+.attack-zones__checkbox,
+.defence-zones__checkbox {
+}
+/**************************************************/
+.fight-log {
+  border: 1px solid green;
+}
+.fight-log__p {
+}
