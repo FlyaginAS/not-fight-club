@@ -60,6 +60,7 @@ h2 {
   cursor: pointer;
   line-height: 64px;
   border-bottom: 3px solid black;
+  padding-bottom: 5px;
   &:link {
     color: white;
   }
