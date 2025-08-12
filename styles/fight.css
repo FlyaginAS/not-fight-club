@@ -5,22 +5,39 @@ body {
 }
 .fight-content {
   border: 1px solid green;
+  padding: 30px;
+  display: flex;
+  justify-content: space-evenly;
 }
 .hero-zone,
 .enemy-zone {
   border: 1px solid red;
+  width: 400px;
 }
+/**************************************************/
 .hero-content,
 .enemy-content {
+  display: flex;
+  flex-flow: column nowrap;
+  align-content: center;
+  align-items: center;
 }
 .hero-header,
 .enemy-header {
+  margin: 0;
+  line-height: 1;
+  margin-bottom: 10px;
+  text-align: center;
+  color: white;
 }
 .hero-avatar-wr,
 .enemy-avatar-wr {
+  width: 90%;
 }
 .hero-avatar,
 .enemy-avatar {
+  opacity: 0.7;
+  width: 100%;
 }
 .hero-health-wr,
 .enemy-health-wr {
@@ -40,6 +57,13 @@ body {
 /**************************************************/
 .body-zones {
   border: 1px solid yellow;
+  width: 400px;
+  background-image: url("/images/body.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  opacity: 0.8;
+  box-shadow: 0 0 10px 10px black;
 }
 .zones__rules .zones .attack-zones,
 .defence-zones {
@@ -56,6 +80,12 @@ body {
 /**************************************************/
 .fight-log {
   border: 1px solid green;
+  height: 150px;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  overflow-y: scroll;
+  background-color: orange;
 }
 .fight-log__p {
 }
