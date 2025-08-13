@@ -6,8 +6,9 @@
     <title>Document</title>
     <link rel="stylesheet" href="./styles/base.css" />
     <link rel="stylesheet" href="./styles/settings.css" />
-    <script type="module" src="./index.js"></script>
+    <!-- <script type="module" src="./index.js"></script> -->
     <script src="./scripts/mark_current_link.js" defer></script>
+    <script src="./scripts/settings.js" type="module"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -36,8 +37,12 @@
     <main class="settings-main">
       <div class="settings-content">
         <h2 class="settings-content__hero-name">Hero name:</h2>
-        <h2 class="settings-content__name">Sano</h2>
-        <input class="settings-content__input" placeholder="New Name" />
+        <h2 class="settings-content__name"></h2>
+        <input
+          class="settings-content__input"
+          placeholder="New Name"
+          required
+        />
         <button class="settings-content__button bright-button">Change</button>
       </div>
     </main>
