@@ -22,35 +22,111 @@ export const appState = {
     health: 100,
     wins: 0,
     loses: 0,
-    body: {
-      head: {
-        protected: false,
-      },
-      neck: {
-        protected: false,
-      },
-      body: {
-        protected: false,
-      },
-      belly: {
-        protected: false,
-      },
-      legs: {
-        protected: false,
-      },
-    },
     attackZones: ["head"],
-    isCriticalAttack: false,
-    damage: 10,
+    defenceZones: ["neck", "belly"],
+    isCriticalAttack: Math.random() * 10 < 2,
+    damage: 15,
     critDamage: 30,
-    isCritDamage: Math.random() * 10 < 2,
   },
   enemy: {
     name: "Enemy1",
     avatar: 0,
     health: 100,
+    attackZones: ["head"],
+    defenceZones: ["neck", "belly"],
+    isCriticalAttack: Math.random() * 10 < 2,
+    damage: 10,
+    critDamage: 30,
   },
-  heroes: [{}],
-  enemies: [{}],
+
+  enemies: [
+    {
+      name: "Ravyn",
+      avatar: 2,
+      health: 100,
+      attackZones: [],
+      defenceZones: [],
+      numberOfAttackZones: 1,
+      numberOfDefenceZones: 2,
+      isCriticalAttack: Math.random() * 10 < 2,
+      damage: 20,
+      critDamage: 40,
+    },
+    {
+      name: "Kaito",
+      avatar: 3,
+      health: 100,
+      attackZones: [],
+      defenceZones: [],
+      numberOfAttackZones: 2,
+      numberOfDefenceZones: 2,
+      isCriticalAttack: Math.random() * 10 < 3,
+      damage: 10,
+      critDamage: 30,
+    },
+    {
+      name: "Shadow",
+      avatar: 6,
+      health: 100,
+      attackZones: [],
+      defenceZones: [],
+      numberOfAttackZones: 3,
+      numberOfDefenceZones: 1,
+      isCriticalAttack: Math.random() * 10 < 3,
+      damage: 15,
+      critDamage: 20,
+    },
+  ],
   log: ["strs"],
 };
+//zones: head, neck, body, belly, legs
+//enemies
+const enemies = [
+  {
+    name: "Ravyn",
+    avatar: 2,
+    health: 100,
+    attackZones: [],
+    defenceZones: [],
+    numberOfAttackZones: 1,
+    numberOfDefenceZones: 2,
+    isCriticalAttack: Math.random() * 10 < 2,
+    damage: 20,
+    critDamage: 40,
+  },
+  {
+    name: "Kaito",
+    avatar: 3,
+    health: 100,
+    attackZones: [],
+    defenceZones: [],
+    numberOfAttackZones: 2,
+    numberOfDefenceZones: 2,
+    isCriticalAttack: Math.random() * 10 < 3,
+    damage: 10,
+    critDamage: 30,
+  },
+  {
+    name: "Shadow",
+    avatar: 6,
+    health: 100,
+    attackZones: [],
+    defenceZones: [],
+    numberOfAttackZones: 3,
+    numberOfDefenceZones: 1,
+    isCriticalAttack: Math.random() * 10 < 3,
+    damage: 15,
+    critDamage: 20,
+  },
+];
+// Ayara Blade Storm – мастер восточных боевых искусств с лёгким, стремительным стилем и парными клинками.
+
+// Ravyn Steel – уличный боец с кожаной курткой, быстрыми реакциями и агрессивной тактикой.
+
+// Kaito Thunder Fist – мощный каратист, чьи удары звучат как раскаты грома.
+
+// Marcus Flame Guard – тяжёлый боец в броне с огненными приёмами.
+
+// Liam Shadow Strike – классический мастер рукопашного боя в рваном сером ги.
+
+// Syn Obsidian Shadow – кибер-ниндзя с улучшенными реакциями и светящимися глазами.

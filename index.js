@@ -1,14 +1,6 @@
 import "./scripts/registry.js";
-import "./scripts/init_fight.js";
 
-// Ayara Blade Storm – мастер восточных боевых искусств с лёгким, стремительным стилем и парными клинками.
-
-// Ravyn Steel – уличный боец с кожаной курткой, быстрыми реакциями и агрессивной тактикой.
-
-// Kaito Thunder Fist – мощный каратист, чьи удары звучат как раскаты грома.
-
-// Marcus Flame Guard – тяжёлый боец в броне с огненными приёмами.
-
-// Liam Shadow Strike – классический мастер рукопашного боя в рваном сером ги.
-
-// Syn Obsidian Shadow – кибер-ниндзя с улучшенными реакциями и светящимися глазами.
+const fightButton = document.querySelector(".home-content__fight-button");
+fightButton.addEventListener("click", (evt) => {
+  window.location.href = "/fight.html";
+});
