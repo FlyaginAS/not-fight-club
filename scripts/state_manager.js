@@ -18,7 +18,7 @@ export function resetState() {
 export const appState = {
   hero: {
     name: "",
-    avatar: 0,
+    avatar: 1,
     health: 100,
     wins: 0,
     loses: 0,
@@ -46,7 +46,7 @@ export const appState = {
     isCritDamage: Math.random() * 10 < 2,
   },
   enemy: {
-    name: "Enemy",
+    name: "Enemy1",
     avatar: 0,
     health: 100,
   },

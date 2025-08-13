@@ -13,7 +13,12 @@ function loadHeroStats() {
   winsEl.textContent = `Wins: ${state.hero.wins}`;
   losesEl.textContent = `Loses: ${state.hero.loses}`;
 }
-function loadHeroAvatar() {}
+function loadHeroAvatar() {
+  const avatarEl = document.querySelector(".character-info__img");
+  const state = loadState();
+  const avatar = state.hero.avatar;
+  avatarEl.src = `./images/avatars_1/${avatar}.png`;
+}
 
 function initPage() {
   loadHeroAvatar();
