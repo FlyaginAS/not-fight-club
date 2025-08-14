@@ -63,3 +63,22 @@ export function loadZones() {
     );
   }
 }
+function loadAvatar(el, val) {
+  el.src = val;
+}
+
+export function loadCharacterAvatar() {
+  const el = document.querySelector(".hero-avatar");
+  const val = loadState().hero.avatar;
+
+  loadAvatar(el, val);
+}
+export function loadEnemyAvatar() {}
+export function loadHealthBar() {
+  changeHealthBar();
+}
+export function loadDigitalHealth() {
+  changeDigitalHealth();
+}
+function changeHealthBar(el, val) {}
+function changeDigitalHealth(el, val) {}

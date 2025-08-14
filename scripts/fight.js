@@ -6,6 +6,7 @@ import {
   isCorrectAmountOfZones,
   saveZones,
   loadZones,
+  loadCharacterAvatar,
 } from "./fight_utils.js";
 import { saveState, loadState } from "./state_manager.js";
 
@@ -22,6 +23,7 @@ initPageInfo();
 
 function initPageInfo() {
   loadZones();
+  loadCharacterAvatar();
 }
 
 attackBtn.addEventListener("click", (evt) => {

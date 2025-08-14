@@ -19,7 +19,7 @@ export const appState = {
   hero: {
     name: "",
     avatar: 1,
-    health: 100,
+    health: 80,
     wins: 0,
     loses: 0,
     attackZones: [],
@@ -29,9 +29,9 @@ export const appState = {
     critDamage: 30,
   },
   enemy: {
-    name: "Enemy1",
+    name: "Maya",
     avatar: 0,
-    health: 100,
+    health: 90,
     attackZones: ["head"],
     defenceZones: ["neck", "belly"],
     isCriticalAttack: Math.random() * 10 < 2,
