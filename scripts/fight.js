@@ -1,9 +1,11 @@
 import {
   getEl,
+  getAll,
   getAttackZones,
   getDefenceZones,
   isCorrectAmountOfZones,
   saveZones,
+  loadZones,
 } from "./fight_utils.js";
 import { saveState, loadState } from "./state_manager.js";
 
@@ -16,7 +18,11 @@ const enemyDigitHealth = getEl(".enemy-health__current");
 const attackBtn = getEl(".attack-button");
 const zones = getEl(".zones");
 
-function initPageInfo() {}
+initPageInfo();
+
+function initPageInfo() {
+  loadZones();
+}
 
 attackBtn.addEventListener("click", (evt) => {
   getAttackZones();
@@ -30,8 +36,3 @@ zones.addEventListener("click", (evt) => {
     attackBtn.disabled = true;
   }
 });
-
-function loadZones() {
-  const attackZones = getEl(".");
-  const defenceZones = getEl(".");
-}

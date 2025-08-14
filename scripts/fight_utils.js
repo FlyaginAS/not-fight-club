@@ -42,3 +42,24 @@ export function saveZones() {
   state.hero.defenceZones = getDefenceZones();
   saveState(state);
 }
+
+export function loadZones() {
+  // const attackCheckboxes = Array.from(getAll(".attack-zones__checkbox"));
+  // const defenceCheckboxes = Array.from(getAll(".defence-zones__checkbox"));
+  const attackZones = document.querySelector(".attack-zones");
+  const defenceZones = document.querySelector(".defence-zones");
+
+  const state = loadState();
+  if (state.hero.attackZones.length > 0) {
+    state.hero.attackZones.forEach(
+      (str) =>
+        (attackZones.querySelector(`input[value='${str}'] `).checked = true)
+    );
+  }
+  if (state.hero.defenceZones.length > 0) {
+    state.hero.defenceZones.forEach(
+      (str) =>
+        (defenceZones.querySelector(`input[value='${str}'] `).checked = true)
+    );
+  }
+}
