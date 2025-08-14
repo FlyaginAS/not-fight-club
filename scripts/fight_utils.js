@@ -79,6 +79,16 @@ export function loadEnemyAvatar() {
 
   loadAvatar(el, val);
 }
+export function loadCharacterName() {
+  const el = document.querySelector(".hero-header");
+  const state = loadState();
+  el.textContent = state.hero.name;
+}
+export function loadEnemyName() {
+  const el = document.querySelector(".enemy-header");
+  const state = loadState();
+  el.textContent = state.enemy.name;
+}
 export function loadHealthBar() {
   changeHealthBar();
 }

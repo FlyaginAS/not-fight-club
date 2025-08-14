@@ -8,6 +8,8 @@ import {
   loadZones,
   loadCharacterAvatar,
   loadEnemyAvatar,
+  loadCharacterName,
+  loadEnemyName,
 } from "./fight_utils.js";
 import { saveState, loadState } from "./state_manager.js";
 
@@ -24,8 +26,10 @@ initPageInfo();
 
 function initPageInfo() {
   loadZones();
+  loadCharacterName();
   loadCharacterAvatar();
   loadEnemyAvatar();
+  loadEnemyName();
 }
 
 attackBtn.addEventListener("click", (evt) => {
