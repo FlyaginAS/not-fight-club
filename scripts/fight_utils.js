@@ -73,7 +73,12 @@ export function loadCharacterAvatar() {
 
   loadAvatar(el, val);
 }
-export function loadEnemyAvatar() {}
+export function loadEnemyAvatar() {
+  const el = document.querySelector(".enemy-avatar");
+  const val = loadState().enemy.avatar;
+
+  loadAvatar(el, val);
+}
 export function loadHealthBar() {
   changeHealthBar();
 }

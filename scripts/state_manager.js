@@ -18,7 +18,7 @@ export function resetState() {
 export const appState = {
   hero: {
     name: "",
-    avatar: 1,
+    avatar: "http://127.0.0.1:5500/images/avatars_1/6.png",
     health: 80,
     wins: 0,
     loses: 0,
@@ -30,7 +30,7 @@ export const appState = {
   },
   enemy: {
     name: "Maya",
-    avatar: 0,
+    avatar: "http://127.0.0.1:5500/images/avatars_1/6.png",
     health: 90,
     attackZones: ["head"],
     defenceZones: ["neck", "belly"],
