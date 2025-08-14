@@ -28,6 +28,13 @@ initPageInfo();
 
 function initPageInfo() {
   loadZones();
+
+  if (isCorrectAmountOfZones()) {
+    attackBtn.disabled = false;
+  } else {
+    attackBtn.disabled = true;
+  }
+
   loadCharacterName();
   loadCharacterAvatar();
   loadEnemyAvatar();
