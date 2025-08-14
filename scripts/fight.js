@@ -4,6 +4,7 @@ import {
   getDefenceZones,
   isCorrectAmountOfZones,
 } from "./fight_utils.js";
+import { saveState, loadState, saveZones } from "./state_manager.js";
 
 const characterName = getEl(".hero-header");
 const enemyName = getEl(".enemy-header");
@@ -26,4 +27,7 @@ zones.addEventListener("click", (evt) => {
   } else {
     attackBtn.disabled = true;
   }
+  saveZones();
 });
+
+function loadZones() {}

@@ -31,3 +31,9 @@ export function isCorrectAmountOfZones() {
 
   return attackZones.length === 1 && defenceZones.length === 2;
 }
+export function saveZones() {
+  const state = loadState();
+  state.hero.attackZones = getAttackZones();
+  state.hero.defenceZones = getDefenceZones();
+  saveState(state);
+}
