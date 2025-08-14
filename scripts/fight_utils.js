@@ -95,10 +95,18 @@ export function loadHealthBar(person) {
 
   changeHealthBar(bar, health);
 }
-export function loadDigitalHealth() {
-  changeDigitalHealth(el, val);
+export function loadDigitalHealth(person) {
+  const health = document.querySelector(`.${person}-health__current`);
+  const value = loadState()[person].health;
+
+  changeDigitalHealth(health, value);
 }
 function changeHealthBar(el, val) {
   el.value = val;
 }
-function changeDigitalHealth(el, val) {}
+function changeDigitalHealth(el, val) {
+  el.textContent = val;
+}
+// сгенерировать врага случайным выбором готовых  из массива
+// начать писать логику боя
+// продумать логику логирования, напрмер каждое дейтсвие создает строку хтмл с классами, пушит в массив в стейте, в конце атаки передает массив в функцию лога, которая делает  innerHtml.

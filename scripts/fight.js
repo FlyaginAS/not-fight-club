@@ -11,6 +11,7 @@ import {
   loadCharacterName,
   loadEnemyName,
   loadHealthBar,
+  loadDigitalHealth,
 } from "./fight_utils.js";
 import { saveState, loadState } from "./state_manager.js";
 
@@ -33,6 +34,8 @@ function initPageInfo() {
   loadEnemyName();
   loadHealthBar("hero");
   loadHealthBar("enemy");
+  loadDigitalHealth("hero");
+  loadDigitalHealth("enemy");
 }
 
 attackBtn.addEventListener("click", (evt) => {
