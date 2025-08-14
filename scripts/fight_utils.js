@@ -1,8 +1,13 @@
+import { loadState, saveState } from "./state_manager.js";
+
 export function getEl(str) {
   return document.querySelector(str);
 }
+export function getAll(str) {
+  return document.querySelectorAll(str);
+}
 export function getAttackZones() {
-  const inputs = document.querySelectorAll(".attack-zones__checkbox");
+  const inputs = getAll(".attack-zones__checkbox");
   const attackZones = Array.from(inputs)
     .filter((input) => input.checked)
     .map((input) => input.value);
@@ -10,7 +15,7 @@ export function getAttackZones() {
   return attackZones;
 }
 export function getDefenceZones() {
-  const inputs = document.querySelectorAll(".defence-zones__checkbox");
+  const inputs = getAll(".defence-zones__checkbox");
   const defenceZones = Array.from(inputs)
     .filter((input) => input.checked)
     .map((input) => input.value);
@@ -18,8 +23,8 @@ export function getDefenceZones() {
   return defenceZones;
 }
 export function isCorrectAmountOfZones() {
-  const inputs1 = document.querySelectorAll(".attack-zones__checkbox");
-  const inputs2 = document.querySelectorAll(".defence-zones__checkbox");
+  const inputs1 = getAll(".attack-zones__checkbox");
+  const inputs2 = getAll(".defence-zones__checkbox");
 
   const attackZones = Array.from(inputs1)
     .filter((input) => input.checked)
