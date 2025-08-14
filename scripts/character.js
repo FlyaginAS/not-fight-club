@@ -17,7 +17,7 @@ function loadHeroAvatar() {
   const avatarEl = document.querySelector(".character-info__img");
   const state = loadState();
   const avatar = state.hero.avatar;
-  avatarEl.src = `./images/avatars_1/${avatar}.png`;
+  avatarEl.src = avatar;
 }
 
 function initPage() {
@@ -33,16 +33,20 @@ function changeHeroAvatar(url) {
   //change avatar on page
   const characterImgEl = document.querySelector(".character-info__img");
   characterImgEl.src = url;
-  //Save state
-  const regex = /(\d+)\.png$/;
-  const match = url.match(regex);
 
-  if (match) {
-    const imageNumber = match[1];
-    const state = loadState();
-    state.hero.avatar = imageNumber;
-    saveState(state);
-  }
+  const state = loadState();
+  state.hero.avatar = url;
+  saveState(state);
+  //Save state
+  // const regex = /(\d+)\.png$/;
+  // const match = url.match(regex);
+
+  // if (match) {
+  //   const imageNumber = match[1];
+  //   const state = loadState();
+  //   state.hero.avatar = imageNumber;
+  //   saveState(state);
+  // }
 }
 
 function addListenerOnAvatarsContainer() {
