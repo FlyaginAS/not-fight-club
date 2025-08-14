@@ -138,6 +138,9 @@ body {
   border-radius: 50%;
   line-height: 1;
   padding: 5px;
+  &:disabled {
+    filter: grayscale(100%);
+  }
 }
 /**************************************************/
 .fight-log {
