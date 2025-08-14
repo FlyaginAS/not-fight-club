@@ -10,6 +10,7 @@ import {
   loadEnemyAvatar,
   loadCharacterName,
   loadEnemyName,
+  loadHealthBar,
 } from "./fight_utils.js";
 import { saveState, loadState } from "./state_manager.js";
 
@@ -30,6 +31,8 @@ function initPageInfo() {
   loadCharacterAvatar();
   loadEnemyAvatar();
   loadEnemyName();
+  loadHealthBar("hero");
+  loadHealthBar("enemy");
 }
 
 attackBtn.addEventListener("click", (evt) => {

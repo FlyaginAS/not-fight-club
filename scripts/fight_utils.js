@@ -89,11 +89,16 @@ export function loadEnemyName() {
   const state = loadState();
   el.textContent = state.enemy.name;
 }
-export function loadHealthBar() {
-  changeHealthBar();
+export function loadHealthBar(person) {
+  const health = loadState()[person].health;
+  const bar = document.querySelector(`.${person}-health`);
+
+  changeHealthBar(bar, health);
 }
 export function loadDigitalHealth() {
-  changeDigitalHealth();
+  changeDigitalHealth(el, val);
 }
-function changeHealthBar(el, val) {}
+function changeHealthBar(el, val) {
+  el.value = val;
+}
 function changeDigitalHealth(el, val) {}
