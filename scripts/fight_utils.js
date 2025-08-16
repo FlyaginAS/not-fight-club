@@ -211,6 +211,15 @@ export function attack(attacker, defender) {
 
     attacker.attackZones = attackZones;
     attacker.defenceZones = defenceZones;
+  } else {
+    // we should set up enemy zones when he defends
+    [attackZones, defenceZones] = calcEnemyZones(
+      defender.numberOfAttackZones,
+      defender.numberOfDefenceZones
+    );
+
+    defender.attackZones = attackZones;
+    defender.defenceZones = defenceZones;
   }
 
   attackZones = [...attacker.attackZones];
@@ -246,6 +255,10 @@ function createParagraph(innerHtml) {
   newParagraph.innerHTML = innerHtml;
   return newParagraph;
 }
+// сохранение всего в стейт!!!
+// добавить расчет здоровья
+// добавить криты и пробитие несмотря на защиту
+// добавить расчет  счетчика побед и поражений
 
 /* <span class="attacker-name"></span>
 <span class="defender-name"></span>
