@@ -192,27 +192,33 @@ function calcEnemyZones(attackZonesNumber, defenceZonesNumber) {
 }
 
 export function attack(attacker, defender) {
+  let attackZones, defenceZones;
+
   if (!attacker.isHero) {
-    console.log(
-      calcEnemyZones(
-        attacker.numberOfAttackZones,
-        attacker.numberOfDefenceZones
-      )
+    [attackZones, defenceZones] = calcEnemyZones(
+      attacker.numberOfAttackZones,
+      attacker.numberOfDefenceZones
     );
+    const state = loadState();
+    state.enemy.attackZones = attackZones;
+    state.enemy.defenceZones = defenceZones;
+    saveState(state);
   }
 
-  // const attackZones = [...attacker.attackZones];
-  // console.log(
-  //   `${attacker.name} attacked ${defender.name} to ${attacker.attackZones[0]}`
-  // );
+  attackZones = [...attacker.attackZones];
+  console.log(
+    `${attacker.name} attacked ${defender.name} to ${attacker.attackZones[0]}`
+  );
 
-  // attackZones.forEach((zone) => {
-  //   if (defender.defenceZones.indexOf(zone) > -1) {
-  //     console.log(`but ${defender.name} protected his ${zone}`);
-  //   } else {
-  //     console.log(`and deal ${attacker.damage} damage`);
-  //   }
-  // });
+  attackZones.forEach((zone) => {
+    if (defender.defenceZones.indexOf(zone) > -1) {
+      console.log(`but ${defender.name} protected his ${zone}`);
+    } else {
+      console.log(`and deal ${attacker.damage} damage`);
+    }
+  });
+
+  console.log("--------------------------------");
 }
 
 // продумать логику логирования, напрмер каждое дейтсвие создает строку хтмл с классами, пушит в массив в стейте, в конце атаки передает массив в функцию лога, которая делает  innerHtml.
