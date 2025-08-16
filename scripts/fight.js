@@ -14,6 +14,7 @@ import {
   loadDigitalHealth,
   generateEnemy,
   loadLog,
+  attack,
 } from "./fight_utils.js";
 import { saveState, loadState } from "./state_manager.js";
 
@@ -49,8 +50,11 @@ function initPageInfo() {
 }
 
 attackBtn.addEventListener("click", (evt) => {
-  getAttackZones();
-  getDefenceZones();
+  const state = loadState();
+  attack(state.hero, state.enemy);
+  attack(state.enemy, state.hero);
+  // getAttackZones();
+  // getDefenceZones();
 });
 zones.addEventListener("click", (evt) => {
   saveZones();

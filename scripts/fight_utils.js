@@ -11,7 +11,7 @@ export function getAttackZones() {
   const attackZones = Array.from(inputs)
     .filter((input) => input.checked)
     .map((input) => input.value);
-  console.log(attackZones);
+  // console.log(attackZones);
   return attackZones;
 }
 export function getDefenceZones() {
@@ -19,7 +19,7 @@ export function getDefenceZones() {
   const defenceZones = Array.from(inputs)
     .filter((input) => input.checked)
     .map((input) => input.value);
-  console.log(defenceZones);
+  // console.log(defenceZones);
   return defenceZones;
 }
 export function isCorrectAmountOfZones() {
@@ -164,9 +164,57 @@ export function generateEnemy() {
   return enemies[enemyNumber];
 }
 // начать писать логику боя
-export function attack(attacker, defender) {
-  //
+function calcEnemyZones(attackZonesNumber, defenceZonesNumber) {
+  const zones = ["head", "neck", "body", "belly", "legs"];
+  const attackZones = [];
+  const defenceZones = [];
+  function getRandomIndex() {
+    return Math.floor(Math.random() * 5);
+  }
+
+  while (attackZones.length < attackZonesNumber) {
+    const zone = zones[getRandomIndex()];
+    if (attackZones.indexOf(zone) > -1) {
+      continue;
+    }
+    attackZones.push(zone);
+  }
+
+  while (defenceZones.length < defenceZonesNumber) {
+    const zone = zones[getRandomIndex()];
+    if (defenceZones.indexOf(zone) > -1) {
+      continue;
+    }
+    defenceZones.push(zone);
+  }
+
+  return [attackZones, defenceZones];
 }
+
+export function attack(attacker, defender) {
+  if (!attacker.isHero) {
+    console.log(
+      calcEnemyZones(
+        attacker.numberOfAttackZones,
+        attacker.numberOfDefenceZones
+      )
+    );
+  }
+
+  // const attackZones = [...attacker.attackZones];
+  // console.log(
+  //   `${attacker.name} attacked ${defender.name} to ${attacker.attackZones[0]}`
+  // );
+
+  // attackZones.forEach((zone) => {
+  //   if (defender.defenceZones.indexOf(zone) > -1) {
+  //     console.log(`but ${defender.name} protected his ${zone}`);
+  //   } else {
+  //     console.log(`and deal ${attacker.damage} damage`);
+  //   }
+  // });
+}
+
 // продумать логику логирования, напрмер каждое дейтсвие создает строку хтмл с классами, пушит в массив в стейте, в конце атаки передает массив в функцию лога, которая делает  innerHtml.
 function log(paragraphInnerHtml) {
   const state = loadState();

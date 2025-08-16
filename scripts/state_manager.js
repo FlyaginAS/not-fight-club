@@ -17,8 +17,9 @@ export function resetState() {
 // //!app state structure
 export const appState = {
   hero: {
+    isHero: true,
     name: "",
-    avatar: "http://127.0.0.1:5500/images/avatars_1/6.png",
+    avatar: "http://127.0.0.1:5500/images/avatars_1/1.png",
     health: 100,
     wins: 0,
     loses: 0,
