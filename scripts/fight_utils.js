@@ -194,10 +194,15 @@ function calcEnemyZones(attackZonesNumber, defenceZonesNumber) {
 }
 
 export function attack(attacker, defender) {
+  const heroHealthProgressEl = document.querySelector(".hero-health");
+  const heroHealthDigitsEl = document.querySelector(".hero-health__current");
+  const enemyHealthProgressEl = document.querySelector(".enemy-health");
+  const enemyHealthDigitsEl = document.querySelector(".enemy-health__current");
+
   let attackZones, defenceZones;
   let innerHtml1 = "";
   let innerHtml2 = "";
-
+  //init zones for enemy for 2 cases
   if (!attacker.isHero) {
     [attackZones, defenceZones] = calcEnemyZones(
       attacker.numberOfAttackZones,
@@ -230,6 +235,22 @@ export function attack(attacker, defender) {
       innerHtml2 = `but <span class="log--blue">${defender.name}</span> <span class="log--green">protected</span> <span class="log--white">his</span> <span class="log--green">${zone}</span>`;
     } else {
       innerHtml2 = `and deal <span class="log--red">${attacker.damage} damage</span>`;
+
+      if (attacker.isHero) {
+        const state = loadState();
+        state.enemy.health = state.enemy.health - attacker.damage;
+        changeHealthBar(enemyHealthProgressEl, state.enemy.health);
+        saveState(state);
+
+        changeDigitalHealth(enemyHealthDigitsEl, state.enemy.health);
+      } else {
+        const state = loadState();
+        state.hero.health = state.hero.health - attacker.damage;
+        changeHealthBar(heroHealthProgressEl, state.hero.health);
+        saveState(state);
+
+        changeDigitalHealth(heroHealthDigitsEl, state.hero.health);
+      }
     }
 
     log(innerHtml1 + " " + innerHtml2);
