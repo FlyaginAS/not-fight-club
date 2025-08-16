@@ -214,19 +214,17 @@ export function attack(attacker, defender) {
   }
 
   attackZones = [...attacker.attackZones];
-  console.log(
-    `${attacker.name} attacked ${defender.name} to ${attacker.attackZones[0]}`
-  );
-  innerHtml1 = `<span class="log--blue">${attacker.name}</span> attacked <span class="log--blue">${defender.name}</span> to <span class="log--blue">${attacker.attackZones[0]}</span>`;
 
   attackZones.forEach((zone) => {
+    innerHtml1 = `<span class="log--blue">${attacker.name}</span> attacked <span class="log--blue">${defender.name}</span> to <span class="log--blue">${zone}</span>`;
     if (defender.defenceZones.indexOf(zone) > -1) {
       innerHtml2 = `but <span class="log--blue">${defender.name}</span> <span class="log--green">protected</span> <span class="log--white">his</span> <span class="log--green">${zone}</span>`;
     } else {
       innerHtml2 = `and deal <span class="log--red">${attacker.damage} damage</span>`;
     }
+
+    log(innerHtml1 + " " + innerHtml2);
   });
-  log(innerHtml1 + " " + innerHtml2);
 }
 
 // продумать логику логирования, напрмер каждое дейтсвие создает строку хтмл с классами, пушит в массив в стейте, в конце атаки передает массив в функцию лога, которая делает  innerHtml.
