@@ -46,6 +46,7 @@ function initPageInfo() {
   loadHealthBar("enemy");
   loadDigitalHealth("hero");
   loadDigitalHealth("enemy");
+
   loadLog();
 }
 

@@ -112,12 +112,14 @@ export function loadLog() {
   const logEl = document.querySelector(".fight-log");
 
   const log = loadState().log;
-  const paragraphs = log.map((innerHtml) => createParagraph(innerHtml));
-  //remembered for optimization
-  const fragment = document.createDocumentFragment();
-  paragraphs.forEach((p) => fragment.append(p));
+  if (log) {
+    const paragraphs = log.map((innerHtml) => createParagraph(innerHtml));
+    //remembered for optimization
+    const fragment = document.createDocumentFragment();
+    paragraphs.forEach((p) => fragment.append(p));
 
-  logEl.append(fragment);
+    logEl.append(fragment);
+  }
 }
 // сгенерировать врага случайным выбором готовых  из массива
 const enemies = [
@@ -193,32 +195,37 @@ function calcEnemyZones(attackZonesNumber, defenceZonesNumber) {
 
 export function attack(attacker, defender) {
   let attackZones, defenceZones;
+  let innerHtml1 = "";
+  let innerHtml2 = "";
 
   if (!attacker.isHero) {
     [attackZones, defenceZones] = calcEnemyZones(
       attacker.numberOfAttackZones,
       attacker.numberOfDefenceZones
     );
-    const state = loadState();
-    state.enemy.attackZones = attackZones;
-    state.enemy.defenceZones = defenceZones;
-    saveState(state);
+
+    // const state = loadState();
+    // state.enemy.attackZones = attackZones;
+    // state.enemy.defenceZones = defenceZones;
+    // saveState(state);
+    attacker.attackZones = attackZones;
+    attacker.defenceZones = defenceZones;
   }
 
   attackZones = [...attacker.attackZones];
   console.log(
     `${attacker.name} attacked ${defender.name} to ${attacker.attackZones[0]}`
   );
+  innerHtml1 = `<span class="log--blue">${attacker.name}</span> attacked <span class="log--blue">${defender.name}</span> to <span class="log--blue">${attacker.attackZones[0]}</span>`;
 
   attackZones.forEach((zone) => {
     if (defender.defenceZones.indexOf(zone) > -1) {
-      console.log(`but ${defender.name} protected his ${zone}`);
+      innerHtml2 = `but <span class="log--blue">${defender.name}</span> <span class="log--green">protected</span> <span class="log--white">his</span> <span class="log--green">${zone}</span>`;
     } else {
-      console.log(`and deal ${attacker.damage} damage`);
+      innerHtml2 = `and deal <span class="log--red">${attacker.damage} damage</span>`;
     }
   });
-
-  console.log("--------------------------------");
+  log(innerHtml1 + " " + innerHtml2);
 }
 
 // продумать логику логирования, напрмер каждое дейтсвие создает строку хтмл с классами, пушит в массив в стейте, в конце атаки передает массив в функцию лога, которая делает  innerHtml.
@@ -231,6 +238,7 @@ function log(paragraphInnerHtml) {
   const logEl = document.querySelector(".fight-log");
   const p = createParagraph(paragraphInnerHtml);
   logEl.append(p);
+  logEl.scrollTop = logEl.scrollHeight;
 }
 
 function createParagraph(innerHtml) {

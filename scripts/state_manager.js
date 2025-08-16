@@ -31,7 +31,7 @@ export const appState = {
   },
   enemy: {},
 
-  log: ["strs1", "strs1", "strs1", "strs1"],
+  log: [],
 };
 //zones: head, neck, body, belly, legs
 //enemies
