@@ -102,6 +102,11 @@ export function loadDigitalHealth(person) {
 
   changeDigitalHealth(health, value);
 }
+export function loadAttackButtonState() {
+  const attackButton = document.querySelector(".attack-button");
+
+  attackButton.disabled = loadState().attackButtonState;
+}
 function changeHealthBar(el, val) {
   el.value = val;
 }
@@ -198,6 +203,7 @@ export function attack(attacker, defender) {
   const heroHealthDigitsEl = document.querySelector(".hero-health__current");
   const enemyHealthProgressEl = document.querySelector(".enemy-health");
   const enemyHealthDigitsEl = document.querySelector(".enemy-health__current");
+  const attackButton = document.querySelector(".attack-button");
 
   let attackZones, defenceZones;
   let innerHtml1 = "";
@@ -255,6 +261,14 @@ export function attack(attacker, defender) {
 
     log(innerHtml1 + " " + innerHtml2);
   });
+
+  //disable button if deaad
+  if (loadState().hero.health <= 0 || loadState().enemy.health <= 0) {
+    attackButton.disabled = true;
+    const state = loadState();
+    state.attackButtonState = true;
+    saveState(state);
+  }
 }
 
 // продумать логику логирования, напрмер каждое дейтсвие создает строку хтмл с классами, пушит в массив в стейте, в конце атаки передает массив в функцию лога, которая делает  innerHtml.
@@ -277,7 +291,7 @@ function createParagraph(innerHtml) {
   return newParagraph;
 }
 // сохранение всего в стейт!!!
-// добавить расчет здоровья
+// добавить стоп игры при смерти любого персонажа- вывести окно с поздравлением или утешением, при закрытии окна отправить на страницу character обновить список побед и поражений,
 // добавить криты и пробитие несмотря на защиту
 // добавить расчет  счетчика побед и поражений
 

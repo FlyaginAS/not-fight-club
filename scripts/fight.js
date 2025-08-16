@@ -15,6 +15,7 @@ import {
   generateEnemy,
   loadLog,
   attack,
+  loadAttackButtonState,
 } from "./fight_utils.js";
 import { saveState, loadState } from "./state_manager.js";
 
@@ -46,7 +47,7 @@ function initPageInfo() {
   loadHealthBar("enemy");
   loadDigitalHealth("hero");
   loadDigitalHealth("enemy");
-
+  loadAttackButtonState();
   loadLog();
 }
 

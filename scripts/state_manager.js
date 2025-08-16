@@ -32,6 +32,7 @@ export const appState = {
   enemy: {},
 
   log: [],
+  attackButtonState: false,
 };
 //zones: head, neck, body, belly, legs
 //enemies
