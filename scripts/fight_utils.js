@@ -132,8 +132,8 @@ const enemies = [
     numberOfAttackZones: 1,
     numberOfDefenceZones: 2,
     critChance: 20,
-    damage: 20,
-    critDamage: 40,
+    damage: 10,
+    critDamage: 13,
   },
   {
     name: "Kaito",
@@ -144,8 +144,8 @@ const enemies = [
     numberOfAttackZones: 2,
     numberOfDefenceZones: 2,
     critChance: 30,
-    damage: 10,
-    critDamage: 30,
+    damage: 7,
+    critDamage: 9,
   },
   {
     name: "Shadow",
@@ -155,9 +155,9 @@ const enemies = [
     defenceZones: [],
     numberOfAttackZones: 3,
     numberOfDefenceZones: 1,
-    critChance: 30,
-    damage: 15,
-    critDamage: 20,
+    critChance: 20,
+    damage: 8,
+    critDamage: 11,
   },
 ];
 export function generateEnemy() {
@@ -203,11 +203,12 @@ export function attack(attacker, defender) {
       attacker.numberOfAttackZones,
       attacker.numberOfDefenceZones
     );
-
+    //my bad
     // const state = loadState();
     // state.enemy.attackZones = attackZones;
     // state.enemy.defenceZones = defenceZones;
     // saveState(state);
+
     attacker.attackZones = attackZones;
     attacker.defenceZones = defenceZones;
   }
