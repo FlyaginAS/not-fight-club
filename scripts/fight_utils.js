@@ -50,6 +50,7 @@ export function loadZones() {
   const defenceZones = document.querySelector(".defence-zones");
 
   const state = loadState();
+
   if (state.hero.attackZones.length > 0) {
     state.hero.attackZones.forEach(
       (str) =>
@@ -107,6 +108,17 @@ function changeHealthBar(el, val) {
 function changeDigitalHealth(el, val) {
   el.textContent = val;
 }
+export function loadLog() {
+  const logEl = document.querySelector(".fight-log");
+
+  const log = loadState().log;
+  const paragraphs = log.map((innerHtml) => createParagraph(innerHtml));
+  //remembered for optimization
+  const fragment = document.createDocumentFragment();
+  paragraphs.forEach((p) => fragment.append(p));
+
+  logEl.append(fragment);
+}
 // сгенерировать врага случайным выбором готовых  из массива
 const enemies = [
   {
@@ -152,4 +164,31 @@ export function generateEnemy() {
   return enemies[enemyNumber];
 }
 // начать писать логику боя
+export function attack(attacker, defender) {
+  //
+}
 // продумать логику логирования, напрмер каждое дейтсвие создает строку хтмл с классами, пушит в массив в стейте, в конце атаки передает массив в функцию лога, которая делает  innerHtml.
+function log(paragraphInnerHtml) {
+  const state = loadState();
+  state.log.push(paragraphInnerHtml);
+  saveState(state);
+
+  //render paragraph
+  const logEl = document.querySelector(".fight-log");
+  const p = createParagraph(paragraphInnerHtml);
+  logEl.append(p);
+}
+
+function createParagraph(innerHtml) {
+  const newParagraph = document.createElement("p");
+  newParagraph.classList.add("fight-log__p");
+  newParagraph.innerHTML = innerHtml;
+  return newParagraph;
+}
+
+/* <span class="attacker-name"></span>
+<span class="defender-name"></span>
+<span class="atack-zone"></span>
+<span class="damage"></span>
+Spider attacked 666 to Legs and deal 10 damage.
+Spider attacked 666 to Neck but 666 protected his Neck. */
