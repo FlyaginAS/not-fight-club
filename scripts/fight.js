@@ -12,6 +12,7 @@ import {
   loadEnemyName,
   loadHealthBar,
   loadDigitalHealth,
+  generateEnemy,
 } from "./fight_utils.js";
 import { saveState, loadState } from "./state_manager.js";
 

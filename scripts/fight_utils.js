@@ -108,5 +108,48 @@ function changeDigitalHealth(el, val) {
   el.textContent = val;
 }
 // сгенерировать врага случайным выбором готовых  из массива
+const enemies = [
+  {
+    name: "Ravyn",
+    avatar: "http://127.0.0.1:5500/images/avatars_1/2.png",
+    health: 100,
+    attackZones: [],
+    defenceZones: [],
+    numberOfAttackZones: 1,
+    numberOfDefenceZones: 2,
+    critChance: 20,
+    damage: 20,
+    critDamage: 40,
+  },
+  {
+    name: "Kaito",
+    avatar: "http://127.0.0.1:5500/images/avatars_1/3.png",
+    health: 100,
+    attackZones: [],
+    defenceZones: [],
+    numberOfAttackZones: 2,
+    numberOfDefenceZones: 2,
+    critChance: 30,
+    damage: 10,
+    critDamage: 30,
+  },
+  {
+    name: "Shadow",
+    avatar: "http://127.0.0.1:5500/images/avatars_1/6.png",
+    health: 100,
+    attackZones: [],
+    defenceZones: [],
+    numberOfAttackZones: 3,
+    numberOfDefenceZones: 1,
+    critChance: 30,
+    damage: 15,
+    critDamage: 20,
+  },
+];
+export function generateEnemy() {
+  const enemyNumber = Math.floor(Math.random() * 3);
+
+  return enemies[enemyNumber];
+}
 // начать писать логику боя
 // продумать логику логирования, напрмер каждое дейтсвие создает строку хтмл с классами, пушит в массив в стейте, в конце атаки передает массив в функцию лога, которая делает  innerHtml.

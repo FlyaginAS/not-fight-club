@@ -1,3 +1,4 @@
+import { generateEnemy } from "./fight_utils.js";
 import { saveState, loadState, resetState, appState } from "./state_manager.js";
 
 const modalRegistry = document.querySelector(".modal-registry");
@@ -15,6 +16,7 @@ if (!loadState()?.hero?.name) {
 
     const newState = loadState();
     newState.hero.name = registryForm.character_name.value.trim();
+    newState.enemy = generateEnemy();
     saveState(newState);
 
     modalRegistry.classList.add("hidden");
