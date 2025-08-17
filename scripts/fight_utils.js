@@ -266,8 +266,11 @@ export function attack(attacker, defender) {
   if (loadState().hero.health <= 0 || loadState().enemy.health <= 0) {
     attackButton.disabled = true;
     const state = loadState();
-    state.attackButtonState = true;
+    state.attackButtonState = false;
     saveState(state);
+    //show modal
+    const fightModal = document.querySelector(".fight-modal");
+    fightModal.classList.remove("fight-modal--hidden");
   }
 }
 

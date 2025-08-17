@@ -221,4 +221,5 @@ body {
   }
 }
 .fight-modal--hidden {
+  display: none;
 }

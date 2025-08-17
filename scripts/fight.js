@@ -27,16 +27,28 @@ const characterDigitHealth = getEl(".hero-health__current");
 const enemyDigitHealth = getEl(".enemy-health__current");
 const attackBtn = getEl(".attack-button");
 const zones = getEl(".zones");
+const closeBtn = getEl(".fight-modal__close");
 
 initPageInfo();
 
 function initPageInfo() {
   loadZones();
 
-  if (isCorrectAmountOfZones()) {
+  const state = loadState();
+  if (
+    isCorrectAmountOfZones() &&
+    state.hero.health > 0 &&
+    state.enemy.health > 0
+  ) {
     attackBtn.disabled = false;
+    const state = loadState();
+    state.attackButtonState = false;
+    saveState(state);
   } else {
     attackBtn.disabled = true;
+    const state = loadState();
+    state.attackButtonState = true;
+    saveState(state);
   }
 
   loadCharacterName();
@@ -60,9 +72,25 @@ attackBtn.addEventListener("click", (evt) => {
 });
 zones.addEventListener("click", (evt) => {
   saveZones();
-  if (isCorrectAmountOfZones()) {
+  const state = loadState();
+
+  if (
+    isCorrectAmountOfZones() &&
+    state.hero.health > 0 &&
+    state.enemy.health > 0
+  ) {
     attackBtn.disabled = false;
+    // const state = loadState();
+    state.attackButtonState = false;
+    saveState(state);
   } else {
     attackBtn.disabled = true;
+    // const state = loadState();
+    state.attackButtonState = true;
+    saveState(state);
   }
+});
+
+closeBtn.addEventListener("click", (evt) => {
+  evt.target.closest(".fight-modal").classList.add("fight-modal--hidden");
 });
