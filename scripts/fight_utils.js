@@ -137,7 +137,7 @@ const enemies = [
     numberOfAttackZones: 1,
     numberOfDefenceZones: 2,
     critChance: 20,
-    damage: 10,
+    damage: 13,
     critDamage: 13,
   },
   {
@@ -149,7 +149,7 @@ const enemies = [
     numberOfAttackZones: 2,
     numberOfDefenceZones: 2,
     critChance: 30,
-    damage: 7,
+    damage: 8,
     critDamage: 9,
   },
   {
@@ -161,7 +161,7 @@ const enemies = [
     numberOfAttackZones: 3,
     numberOfDefenceZones: 1,
     critChance: 20,
-    damage: 8,
+    damage: 10,
     critDamage: 11,
   },
 ];
