@@ -263,10 +263,17 @@ export function attack(attacker, defender) {
   });
 
   //disable button if deaad
-  if (loadState().hero.health <= 0 || loadState().enemy.health <= 0) {
+  const state = loadState();
+  if (state.hero.health <= 0 || state.enemy.health <= 0) {
     attackButton.disabled = true;
-    const state = loadState();
+
     state.attackButtonState = false;
+    //change hero stats
+    if (state.hero.health <= 0) {
+      state.hero.loses += 1;
+    } else {
+      state.hero.wins += 1;
+    }
     saveState(state);
     //show modal
     const fightModal = document.querySelector(".fight-modal");
@@ -293,9 +300,28 @@ function createParagraph(innerHtml) {
   newParagraph.innerHTML = innerHtml;
   return newParagraph;
 }
+
+export function createNewFight() {
+  const state = loadState();
+  // восстановить здоровье героя
+  state.hero.health = 100;
+  // обнулить зоны
+  state.hero.attackZones = [];
+  state.hero.defenceZones = [];
+  // обнулить лог
+  state.log = [];
+  // выбрать случайного врага
+  state.enemy = generateEnemy();
+  //разобраться с активной кнопкой атаки
+
+  saveState(state);
+}
+
+//! добавить криты, добавить криты в лог в виде спанов и пробитие несмотря на защиту
+//! после окончания боя- на страницу character
 // сохранение всего в стейт!!!
 // добавить стоп игры при смерти любого персонажа- вывести окно с поздравлением или утешением, при закрытии окна отправить на страницу character обновить список побед и поражений,
-// добавить криты, добавить криты в лог в виде спанов и пробитие несмотря на защиту
+
 // добавить обновление стейта-новый бой при нажатии на кнопку файт
 
 /* <span class="attacker-name"></span>

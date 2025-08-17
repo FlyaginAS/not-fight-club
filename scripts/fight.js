@@ -66,7 +66,12 @@ function initPageInfo() {
 attackBtn.addEventListener("click", (evt) => {
   const state = loadState();
   attack(state.hero, state.enemy);
-  attack(state.enemy, state.hero);
+
+  if (loadState().enemy.health <= 0) {
+    return;
+  }
+
+  attack(loadState().enemy, loadState().hero);
   // getAttackZones();
   // getDefenceZones();
 });
