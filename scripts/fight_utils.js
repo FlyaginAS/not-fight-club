@@ -130,7 +130,7 @@ export function loadLog() {
 const enemies = [
   {
     name: "Ravyn",
-    avatar: "../images/avatars_1/2.png",
+    avatar: "./images/avatars_1/2.png",
     health: 100,
     attackZones: [],
     defenceZones: [],
@@ -142,7 +142,7 @@ const enemies = [
   },
   {
     name: "Kaito",
-    avatar: "../images/avatars_1/3.png",
+    avatar: "./images/avatars_1/3.png",
     health: 100,
     attackZones: [],
     defenceZones: [],
@@ -154,7 +154,7 @@ const enemies = [
   },
   {
     name: "Shadow",
-    avatar: "../images/avatars_1/6.png",
+    avatar: "./images/avatars_1/6.png",
     health: 100,
     attackZones: [],
     defenceZones: [],
