@@ -1,8 +1,10 @@
 const links = document.querySelectorAll(".page-nav__link");
-const currentPath = window.window.location.pathname;
+const currentFile = window.location.pathname.split("/").pop();
 
 links.forEach((link) => {
-  if (link.getAttribute("href") === currentPath) {
+  const linkFile = link.getAttribute("href").split("/").pop();
+
+  if (linkFile === currentFile) {
     link.classList.add("page-nav__link--active");
   }
 });
