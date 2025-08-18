@@ -137,8 +137,8 @@ const enemies = [
     numberOfAttackZones: 1,
     numberOfDefenceZones: 2,
     critChance: 20,
-    damage: 13,
-    critDamage: 13,
+    damage: 15,
+    critDamage: 20,
   },
   {
     name: "Kaito",
@@ -150,7 +150,7 @@ const enemies = [
     numberOfDefenceZones: 2,
     critChance: 30,
     damage: 8,
-    critDamage: 9,
+    critDamage: 12,
   },
   {
     name: "Shadow",
@@ -162,7 +162,7 @@ const enemies = [
     numberOfDefenceZones: 1,
     critChance: 20,
     damage: 10,
-    critDamage: 11,
+    critDamage: 15,
   },
 ];
 export function generateEnemy() {
@@ -242,21 +242,27 @@ export function attack(attacker, defender) {
     //
     const isCritDamage = isCrit(attacker.critChance);
 
-    if (defender.defenceZones.indexOf(zone) > -1) {
+    if (defender.defenceZones.indexOf(zone) > -1 && !isCritDamage) {
       innerHtml2 = `but <span class="log--blue">${defender.name}</span> <span class="log--green">protected</span> <span class="log--white">his</span> <span class="log--green">${zone}</span>`;
     } else {
-      innerHtml2 = `and deal <span class="log--red">${attacker.damage} damage</span>`;
+      innerHtml2 = `and deal <span class="log--red">${
+        isCritDamage ? attacker.critDamage : attacker.damage
+      } damage</span>`;
 
       if (attacker.isHero) {
         const state = loadState();
-        state.enemy.health = state.enemy.health - attacker.damage;
+        state.enemy.health =
+          state.enemy.health -
+          (isCritDamage ? attacker.critDamage : attacker.damage);
         changeHealthBar(enemyHealthProgressEl, state.enemy.health);
         saveState(state);
 
         changeDigitalHealth(enemyHealthDigitsEl, state.enemy.health);
       } else {
         const state = loadState();
-        state.hero.health = state.hero.health - attacker.damage;
+        state.hero.health =
+          state.hero.health -
+          (isCritDamage ? attacker.critDamage : attacker.damage);
         changeHealthBar(heroHealthProgressEl, state.hero.health);
         saveState(state);
 

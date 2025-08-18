@@ -27,7 +27,7 @@ export const appState = {
     defenceZones: [],
     critChance: 20,
     damage: 15,
-    critDamage: 30,
+    critDamage: 20,
   },
   enemy: {},
 
