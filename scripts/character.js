@@ -29,31 +29,23 @@ function initPage() {
 }
 initPage();
 //*change hero avatar from a library*************************************** */
-function changeHeroAvatar(url) {
+function changeHeroAvatar(relativePath) {
   //change avatar on page
   const characterImgEl = document.querySelector(".character-info__img");
-  characterImgEl.src = url;
+  characterImgEl.src = relativePath;
 
   const state = loadState();
-  state.hero.avatar = url;
+  state.hero.avatar = relativePath;
   saveState(state);
-  //Save state
-  // const regex = /(\d+)\.png$/;
-  // const match = url.match(regex);
-
-  // if (match) {
-  //   const imageNumber = match[1];
-  //   const state = loadState();
-  //   state.hero.avatar = imageNumber;
-  //   saveState(state);
-  // }
 }
 
 function addListenerOnAvatarsContainer() {
   const avatarsContainer = document.querySelector(".character-avatars");
   avatarsContainer.addEventListener("click", (evt) => {
     if (evt.target.tagName === "IMG") {
-      changeHeroAvatar(evt.target.src);
+      const relativePath = `.${evt.target.src.slice(-23)}`;
+
+      changeHeroAvatar(relativePath);
     }
   });
 }
