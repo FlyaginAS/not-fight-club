@@ -206,6 +206,7 @@ export function attack(attacker, defender) {
   const attackButton = document.querySelector(".attack-button");
 
   let attackZones, defenceZones;
+  let innerHtml0 = "<span>Crit attack!!! </span> ";
   let innerHtml1 = "";
   let innerHtml2 = "";
   //init zones for enemy for 2 cases
@@ -237,6 +238,10 @@ export function attack(attacker, defender) {
 
   attackZones.forEach((zone) => {
     innerHtml1 = `<span class="log--blue">${attacker.name}</span> attacked <span class="log--blue">${defender.name}</span> to <span class="log--blue">${zone}</span>`;
+
+    //
+    const isCritDamage = isCrit(attacker.critChance);
+
     if (defender.defenceZones.indexOf(zone) > -1) {
       innerHtml2 = `but <span class="log--blue">${defender.name}</span> <span class="log--green">protected</span> <span class="log--white">his</span> <span class="log--green">${zone}</span>`;
     } else {
@@ -259,7 +264,7 @@ export function attack(attacker, defender) {
       }
     }
 
-    log(innerHtml1 + " " + innerHtml2);
+    log((isCritDamage ? innerHtml0 : "") + innerHtml1 + " " + innerHtml2);
   });
 
   //disable button if deaad
@@ -318,6 +323,9 @@ export function createNewFight() {
 }
 
 //! добавить криты, добавить криты в лог в виде спанов и пробитие несмотря на защиту
+function isCrit(chance) {
+  return Math.random() * 100 <= chance;
+}
 //! после окончания боя- на страницу character
 // сохранение всего в стейт!!!
 // добавить стоп игры при смерти любого персонажа- вывести окно с поздравлением или утешением, при закрытии окна отправить на страницу character обновить список побед и поражений,
