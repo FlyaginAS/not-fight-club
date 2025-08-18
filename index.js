@@ -5,5 +5,5 @@ const fightButton = document.querySelector(".home-content__fight-button");
 fightButton.addEventListener("click", (evt) => {
   createNewFight();
 
-  window.location.href = "/fight.html";
+  window.location.href = "./fight.html";
 });
