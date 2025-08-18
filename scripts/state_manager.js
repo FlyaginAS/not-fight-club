@@ -19,7 +19,7 @@ export const appState = {
   hero: {
     isHero: true,
     name: "",
-    avatar: "../images/avatars_1/1.png",
+    avatar: "./images/avatars_1/1.png",
     health: 100,
     wins: 0,
     loses: 0,
