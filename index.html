@@ -4,10 +4,58 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="./styles/base.css" />
+    <link rel="stylesheet" href="./styles/modal_registry.css" />
     <link rel="stylesheet" href="./styles.css" />
-    <script src="./index.js" type="module"></script>
+    <script type="module" src="./index.js"></script>
+    <script src="./scripts/mark_current_link.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Honk&family=Jolly+Lodger&display=swap"
+      rel="stylesheet"
+    />
   </head>
+
   <body>
-    <h1>Not a fight club!</h1>
+    <header class="page-header">
+      <nav class="page-nav">
+        <div class="page-nav__item">
+          <a class="page-nav__link" href="./index.html">Home</a>
+        </div>
+        <div class="page-nav__item">
+          <a class="page-nav__link" href="./character.html">Character</a>
+        </div>
+        <div class="page-nav__item">
+          <a class="page-nav__link" href="./settings.html">Settings</a>
+        </div>
+        <div class="page-nav__item">
+          <a class="page-nav__link" href="./fight.html">Fighting</a>
+        </div>
+      </nav>
+    </header>
+    <main class="home-content">
+      <button type="button" class="home-content__fight-button bright-button">
+        !!! FIGHT !!!
+      </button>
+    </main>
+    <div class="modal-registry hidden">
+      <form class="registry">
+        <h2 class="registry__header">Create Your Character</h2>
+        <label class="registry__label" for="character_name">
+          Character Name:
+        </label>
+        <input
+          class="registry__input input"
+          type="text"
+          name="character_name"
+          id="character_name"
+          required
+        />
+        <button type="submit" class="registry__submit bright-button">
+          Create Character
+        </button>
+      </form>
+    </div>
   </body>
 </html>

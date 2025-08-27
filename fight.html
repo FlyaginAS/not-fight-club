@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/base.css" />
+    <link rel="stylesheet" href="./styles/fight.css" />
+    <!-- <script type="module" src="./index.js"></script> -->
+    <script src="./scripts/mark_current_link.js" defer></script>
+    <script src="./scripts/fight.js" type="module"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Honk&family=Jolly+Lodger&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <header class="page-header">
+      <nav class="page-nav">
+        <div class="page-nav__item">
+          <a class="page-nav__link" href="./index.html">Home</a>
+        </div>
+        <div class="page-nav__item">
+          <a class="page-nav__link" href="./character.html">Character</a>
+        </div>
+        <div class="page-nav__item">
+          <a class="page-nav__link" href="./settings.html">Settings</a>
+        </div>
+        <div class="page-nav__item">
+          <a class="page-nav__link" href="./fight.html">Fighting</a>
+        </div>
+      </nav>
+    </header>
+    <main class="main-fight">
+      <div class="fight-content">
+        <div class="hero-zone">
+          <div class="hero-content">
+            <h2 class="hero-header">Sano</h2>
+            <div class="hero-avatar-wr">
+              <img
+                class="hero-avatar"
+                src="images/avatars_1/1.png"
+                width="300"
+              />
+            </div>
+            <div class="hero-health-wr">
+              <progress class="hero-health" value="100" max="100"></progress>
+            </div>
+          </div>
+          <div class="hero-health-nums">
+            <span class="hero-health__current">100</span>
+            /
+            <span class="hero-health__full">100</span>
+          </div>
+        </div>
+        <div class="body-zones">
+          <p class="zones__rules">
+            Please pick 1 Attack zone and 2 Defence zones
+          </p>
+          <div class="zones">
+            <div class="attack-zones">
+              <label class="attack-zones__label">
+                <span class="attack-zones__span">Head</span>
+                <input
+                  class="attack-zones__checkbox"
+                  type="checkbox"
+                  name="attack-zones"
+                  value="head"
+                />
+              </label>
+              <label class="attack-zones__label">
+                <span class="attack-zones__span">Neck</span>
+                <input
+                  class="attack-zones__checkbox"
+                  type="checkbox"
+                  name="attack-zones"
+                  value="neck"
+                />
+              </label>
+              <label class="attack-zones__label">
+                <span class="attack-zones__span">Body</span>
+                <input
+                  class="attack-zones__checkbox"
+                  type="checkbox"
+                  name="attack-zones"
+                  value="body"
+                />
+              </label>
+              <label class="attack-zones__label">
+                <span class="attack-zones__span">Belly</span>
+                <input
+                  class="attack-zones__checkbox"
+                  type="checkbox"
+                  name="attack-zones"
+                  value="belly"
+                />
+              </label>
+              <label class="attack-zones__label">
+                <span class="attack-zones__span">Legs</span>
+                <input
+                  class="attack-zones__checkbox"
+                  type="checkbox"
+                  name="attack-zones"
+                  value="legs"
+                />
+              </label>
+            </div>
+            <div class="defence-zones">
+              <label class="defence-zones__label">
+                <span class="defence-zones__span">Head</span>
+                <input
+                  class="defence-zones__checkbox"
+                  type="checkbox"
+                  name="defence-zones"
+                  value="head"
+                />
+              </label>
+              <label class="defence-zones__label">
+                <span class="defence-zones__span">Neck</span>
+                <input
+                  class="defence-zones__checkbox"
+                  type="checkbox"
+                  name="defence-zones"
+                  value="neck"
+                />
+              </label>
+              <label class="defence-zones__label">
+                <span class="defence-zones__span">Body</span>
+                <input
+                  class="defence-zones__checkbox"
+                  type="checkbox"
+                  name="defence-zones"
+                  value="body"
+                />
+              </label>
+              <label class="defence-zones__label">
+                <span class="defence-zones__span">Belly</span>
+                <input
+                  class="defence-zones__checkbox"
+                  type="checkbox"
+                  name="defence-zones"
+                  value="belly"
+                />
+              </label>
+              <label class="defence-zones__label">
+                <span class="defence-zones__span">Legs</span>
+                <input
+                  class="defence-zones__checkbox"
+                  type="checkbox"
+                  name="defence-zones"
+                  value="legs"
+                />
+              </label>
+            </div>
+          </div>
+          <div class="zones-type">
+            <div class="zones-type__attack">Attack Zones</div>
+            <div class="zones-type__defence">Defence Zones</div>
+          </div>
+          <div class="attack-wr">
+            <button class="attack-button bright-button" disabled>Attack</button>
+          </div>
+        </div>
+        <div class="enemy-zone">
+          <div class="enemy-content">
+            <h2 class="enemy-header">Sano</h2>
+            <div class="enemy-avatar-wr">
+              <img
+                class="enemy-avatar"
+                src="./images/avatars_1/1.png"
+                width="300"
+              />
+            </div>
+            <div class="enemy-health-wr">
+              <progress class="enemy-health" value="100" max="100"></progress>
+            </div>
+          </div>
+          <div class="enemy-health-nums">
+            <span class="enemy-health__current">100</span>
+            /
+            <span class="enemy-health__full">100</span>
+          </div>
+        </div>
+      </div>
+      <div class="fight-log"></div>
+      <div class="fight-modal fight-modal--hidden">
+        <div class="fight-modal__content">
+          <p class="fight-modal__text">The fight has finished.</p>
+          <a class="fight-modal__link" href="./character.html">
+            To Character...
+          </a>
+          <button class="fight-modal__close">X</button>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

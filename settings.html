@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/base.css" />
+    <link rel="stylesheet" href="./styles/settings.css" />
+    <!-- <script type="module" src="./index.js"></script> -->
+    <script src="./scripts/mark_current_link.js" defer></script>
+    <script src="./scripts/settings.js" type="module"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Honk&family=Jolly+Lodger&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <header class="page-header">
+      <nav class="page-nav">
+        <div class="page-nav__item">
+          <a class="page-nav__link" href="./index.html">Home</a>
+        </div>
+        <div class="page-nav__item">
+          <a class="page-nav__link" href="./character.html">Character</a>
+        </div>
+        <div class="page-nav__item">
+          <a class="page-nav__link" href="./settings.html">Settings</a>
+        </div>
+        <div class="page-nav__item">
+          <a class="page-nav__link" href="./fight.html">Fighting</a>
+        </div>
+      </nav>
+    </header>
+    <main class="settings-main">
+      <div class="settings-content">
+        <h2 class="settings-content__hero-name">Hero name:</h2>
+        <h2 class="settings-content__name"></h2>
+        <input
+          class="settings-content__input"
+          placeholder="New Name"
+          required
+        />
+        <button class="settings-content__button bright-button">Change</button>
+      </div>
+    </main>
+  </body>
+</html>
